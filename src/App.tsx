@@ -1,7 +1,21 @@
-import Dropdown from './Components/Dropdown/Dropdown'
-import './App.css'
+import { SyntheticEvent, useState, useEffect } from 'react';
+import Dropdown from './Components/Dropdown/Dropdown';
+import SearchBar from './Components/SearchBar/SearchBar';
+import useDebounce from './hooks/useDebounce';
+import './App.css';
+import './Icons/icomoon.css';
 
 function App() {
+
+  const [searchKey, setSearchKey] = useState("");
+  const debounceKey = useDebounce(searchKey, 2000);
+
+  useEffect(()=>{console.log(">> debounceKey: ", debounceKey)},[debounceKey]);
+
+  const handleChange = (e: SyntheticEvent) => {
+    setSearchKey(e.target.value);
+  };
+
   const onMenuItemClick = (id: string) => {
     console.log(">> id: ", id);
   }
@@ -28,6 +42,12 @@ function App() {
   const buttonText = "Sort By";
   return (
     <>
+      <SearchBar
+        searchKey={searchKey}
+        handleChange={handleChange}
+      />
+      <br/>
+      <br/>
       <Dropdown 
         onMenuItemClick={onMenuItemClick}
         menuItems={menuItems}

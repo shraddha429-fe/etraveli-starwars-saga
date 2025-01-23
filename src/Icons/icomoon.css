@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?rpwdmc');
+  src:  url('fonts/icomoon.eot?rpwdmc#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?rpwdmc') format('truetype'),
+    url('fonts/icomoon.woff?rpwdmc') format('woff'),
+    url('fonts/icomoon.svg?rpwdmc#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star-full:before {
+  content: "\e900";
+}
+.icon-rate:before {
+  content: "\e900";
+}
+.icon-star:before {
+  content: "\e900";
+}
+.icon-favorite:before {
+  content: "\e900";
+}
+.icon-bookmark:before {
+  content: "\e900";
+}
+.icon-star-empty:before {
+  content: "\e914";
+}
+.icon-rate1:before {
+  content: "\e914";
+}
+.icon-star1:before {
+  content: "\e914";
+}
+.icon-favorite1:before {
+  content: "\e914";
+}
+.icon-bookmark1:before {
+  content: "\e914";
+}
+.icon-adjust:before {
+  content: "\e901";
+}
+.icon-arrow-thin-down:before {
+  content: "\e902";
+}
+.icon-arrow-thin-left:before {
+  content: "\e903";
+}
+.icon-arrow-thin-right:before {
+  content: "\e904";
+}
+.icon-arrow-thin-up:before {
+  content: "\e905";
+}
+.icon-block:before {
+  content: "\e906";
+}
+.icon-cheveron-down:before {
+  content: "\e907";
+}
+.icon-cheveron-left:before {
+  content: "\e908";
+}
+.icon-cheveron-right:before {
+  content: "\e909";
+}
+.icon-cheveron-up:before {
+  content: "\e90a";
+}
+.icon-close-outline:before {
+  content: "\e90b";
+}
+.icon-film:before {
+  content: "\e90c";
+}
+.icon-hour-glass:before {
+  content: "\e90d";
+}
+.icon-information-outline:before {
+  content: "\e90e";
+}
+.icon-link:before {
+  content: "\e90f";
+}
+.icon-menu:before {
+  content: "\e910";
+}
+.icon-reload:before {
+  content: "\e911";
+}
+.icon-search:before {
+  content: "\e912";
+}
+.icon-share-alt:before {
+  content: "\e913";
+}
