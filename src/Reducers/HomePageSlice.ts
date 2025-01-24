@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 // import type { PayloadAction } from '@reduxjs/toolkit'
-import { HomeInitialStateType, Movie, OriginalFilm } from "../types/movieTypes";
+import { HomeInitialStateType, Movie, Film,OriginalFilm } from "../types/movieTypes";
 import axios from "axios";
 
 const initialState : HomeInitialStateType = {
         sortId: "",
         movieId: null,
         searchKey: "",
-        movie: null,
+        movie: {},
         isMovieListLoading: false,
         isMovieListError: null,
         movieList: [],
@@ -28,7 +28,7 @@ const homePageSlice = createSlice({
   name: "homePageSlice",
   initialState,
   reducers: {
-    setSortId : (state, action: PayloadAction<number>) => {
+    setSortId : (state, action: PayloadAction<string>) => {
         state.sortId = action.payload
     },
     setSelectedMovieId : (state, action : PayloadAction<number>) => {
@@ -37,7 +37,7 @@ const homePageSlice = createSlice({
     setSearchKey : (state, action: PayloadAction<string>) => {
         state.searchKey = action.payload
     },
-    setSelectedMovie : (state, action: PayloadAction<Movie>) => {
+    setSelectedMovie : (state, action: PayloadAction<Film>) => {
         state.movie = action.payload
     }
   },
