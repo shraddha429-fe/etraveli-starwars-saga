@@ -9,3 +9,9 @@
     margin-top: 100px;
     justify-content: center;
 }
+
+@media (max-width: 500px) {
+    .default-container {
+        margin-top: 10px;
+    }
+}

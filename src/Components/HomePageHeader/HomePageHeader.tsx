@@ -5,11 +5,9 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setSearchKey, setSortId } from '../../Reducers/HomePageSlice';
 
 const HomePageHeader = () => {
-    // const [searchKey, setSearchKey] = useState('');
 
     const dispatch = useAppDispatch();
-        const { searchKey, sortId } = useAppSelector((state)=> state.homePage);
-
+        const { searchKey } = useAppSelector((state)=> state.homePage);
 
    const menuItems = [
     {

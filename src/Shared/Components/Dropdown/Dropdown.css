@@ -22,6 +22,13 @@ button:hover {
   gap: 5px;
 }
 
+@media (max-width: 500px) {
+  .dropdownBtn {
+    width: 100%;
+  }
+  
+}
+
 .dropdownBtn span {
   font-size: 17px;
 }
@@ -44,6 +51,7 @@ button:hover {
   padding: 4px 8px;
   cursor: pointer;
   width: calc(100% -  16px);
+  border-bottom: 1px solid rgb(165, 162, 162);
 }
 
 .menuItem:first-child {
@@ -51,6 +59,7 @@ button:hover {
 }
 
 .menuItem:last-child {
+    border-top: 1px solid rgb(165, 162, 162);
     border-radius: 0 0 3px 3px;
 }
 
