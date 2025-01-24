@@ -30,7 +30,16 @@ const Dropdown = (props : Props) => {
     }
     return(
         <div className="container">
-            <button className="dropdownBtn" onClick={handleOpen}>{buttonText}</button>
+            <div className='btn-container'>
+                <button 
+                    className="dropdownBtn" 
+                    onClick={handleOpen}
+                >
+                    {buttonText}
+                    <span className={open ? 'icon-cheveron-up': 'icon-cheveron-down'} />
+                </button>
+                
+            </div>
             {open && 
                 <div className='menu'>
                     {menuItems.map((item) => {

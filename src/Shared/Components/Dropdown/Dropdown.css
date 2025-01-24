@@ -10,28 +10,34 @@ button {
     font-weight: 400;
     color: #FFFFFF;
     background-color: #DF1592;
+    width: max-content;
 }
 
 button:hover {
-    color: black;
-    background: rgb(232, 226, 226);
+    cursor: pointer;
 }
 
 .dropdownBtn {
-  position: inherit;
+  display: flex;
+  gap: 5px;
+}
+
+.dropdownBtn span {
+  font-size: 17px;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  border: 1px solid #DF1592;
+  border: 2px solid #DF1592;
   border-radius: 6px;
   position: absolute;
   width: 200px;
   z-index: 2;
   margin-top: 8px;
   font-size: 14px;
+  background: #FFFFFF;
 }
 
 .menuItem {
@@ -41,18 +47,19 @@ button:hover {
 }
 
 .menuItem:first-child {
-    border-radius: 6px 6px 0 0;
+    border-radius: 3px 3px 0 0;
 }
 
 .menuItem:last-child {
-    border-radius: 0 0 6px 6px;
+    border-radius: 0 0 3px 3px;
 }
 
 .selected {
-    color: #FFFFFF;
-    background-color: #DF1592;
+    color: #FFFFFF !important;
+    background-color: #DF1592 !important;
 }
 
 .menuItem:hover {
   background-color: #f0d4e5;
+  color: #000;
 }
