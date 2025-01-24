@@ -1,22 +1,8 @@
 import { SyntheticEvent } from 'react';
+import { MovieTileProps } from '../../types/movieTypes';
 import './MovieTile.css';
 
-interface Episode {
-    id: number,
-    episode: string,
-    title: string,
-    rating: number,
-    releaseYear: string,
-}
-
-interface Props {
-    movie: Episode,
-    colDef: (keyof Episode) [],
-    handleClick: (id: number) => void,
-    selectedMovie: number,
-}
-
-const MovieTile = (props: Props) => {
+const MovieTile = (props: MovieTileProps) => {
     const {movie, colDef, handleClick, selectedMovie } = props;
     const handleMovieClick = (e: SyntheticEvent) => {
         const { id} = e.target;
