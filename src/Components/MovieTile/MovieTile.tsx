@@ -3,17 +3,17 @@ import { MovieTileProps } from '../../types/movieTypes';
 import './MovieTile.css';
 
 const MovieTile = (props: MovieTileProps) => {
-    const {movie, colDef, handleClick, selectedMovie } = props;
+    const {movie, colDef, handleClick, selectedMovieId } = props;
     const handleMovieClick = (e: SyntheticEvent) => {
         const { id} = e.target;
         handleClick(Number(id));
     }
     return (
-        <div className={`movie-container ${selectedMovie === movie.id ? 'selected' : ''}`}>
+        <div className={`movie-container ${selectedMovieId === movie.episode_id ? 'selected' : ''}`}>
             {colDef.map((key, index) => (
                 <div
-                    key={`${movie.id}-${index}`}
-                    id={String(movie.id)}
+                    key={`${movie.episode_id}-${index}`}
+                    id={String(movie.episode_id)}
                     onClick={handleMovieClick}
                 >{movie[key]}</div>
             ))}

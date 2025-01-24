@@ -1,15 +1,15 @@
-import { SyntheticEvent, useState, useEffect } from 'react';
-import useDebounce from '../../hooks/useDebounce';
+import { SyntheticEvent} from 'react';
 import Dropdown from "../../Shared/Components/Dropdown/Dropdown";
 import SearchBar from "../../Shared/Components/SearchBar/SearchBar";
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setSearchKey, setSortId } from '../../Reducers/HomePageSlice';
 
 const HomePageHeader = () => {
-    const [searchKey, setSearchKey] = useState('');
-  const debounceKey = useDebounce(searchKey, 2000);
+    // const [searchKey, setSearchKey] = useState('');
 
-  useEffect(() => {
-    console.log('>> debounceKey: ', debounceKey);
-  }, [debounceKey]);
+    const dispatch = useAppDispatch();
+        const { searchKey, sortId } = useAppSelector((state)=> state.homePage);
+
 
    const menuItems = [
     {
@@ -35,11 +35,11 @@ const HomePageHeader = () => {
     const searchPlaceholder = "Type to search...";
 
   const handleChange = (e: SyntheticEvent) => {
-    setSearchKey(e.target.value);
+    dispatch(setSearchKey(e.target.value));
   };
 
   const onMenuItemClick = (id: string) => {
-    console.log('>> id: ', id);
+    dispatch(setSortId(id));
   };
 
     return (
