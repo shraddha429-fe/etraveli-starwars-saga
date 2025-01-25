@@ -68,7 +68,6 @@ const HomePage = () => {
   }, [searchKeyword, movieList, sortId]);
 
   const handleClick = (id: number) => {
-    console.log(id);
     dispatch(setSelectedMovieId(id));
     const selectedMovieArray = filteredList.filter((item) => item.episode_id === id)
     dispatch(
