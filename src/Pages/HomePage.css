@@ -18,14 +18,14 @@
 .content {
     display: flex;
     align-items: flex-start;
-    position: relative;
+    /* position: relative; */
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
     .content {
         flex-direction: column;
     }
-}
+} */
 
 .content-list {
     width: 60%;
@@ -38,12 +38,16 @@
     z-index: 1;
 }
 
-@media (max-width: 500px) {
+ @media (max-width: 500px) {
     .content-list {
         width: 100%
     }
 
     .content-details {
+        width: 100%
+    }
+
+    /* .content-details {
         position: absolute;
         top: 0;
         left: 0;
@@ -54,8 +58,8 @@
         padding: 16px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
-    }
-}
+    } */
+} 
 
 .divider {
     border: 1px solid gray;

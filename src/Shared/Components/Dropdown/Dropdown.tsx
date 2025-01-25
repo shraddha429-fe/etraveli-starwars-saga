@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { useState } from 'react';
 import './Dropdown.css';
 
 interface MenuItem {
@@ -16,12 +16,11 @@ const Dropdown = (props : Props) => {
     const [open, setOpen] = useState(false);
 
     const { buttonText, menuItems, onMenuItemClick} = props;
-    const [selected, setSelected] = useState();
+    const [selected, setSelected] = useState<string>();
 
-    const handleMenuChange = (e: SyntheticEvent) => {
-        const {id} = e.target;
-        setSelected(id);
-        onMenuItemClick(id);
+    const handleMenuChange = (menuId: string) => {
+        setSelected(menuId);
+        onMenuItemClick(menuId);
         setOpen((open) => !open);
     }
 
@@ -45,8 +44,7 @@ const Dropdown = (props : Props) => {
                     {menuItems.map((item) => {
                         return (
                             <div 
-                                id={item.id} 
-                                onClick={handleMenuChange} 
+                                onClick={()=>handleMenuChange(item.id)} 
                                 key={item.id} 
                                 className={`menuItem ${selected === item.id ? 'selected' : ''}`}
                             >

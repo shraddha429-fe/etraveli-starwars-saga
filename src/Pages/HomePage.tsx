@@ -13,13 +13,18 @@ import MovieDetail from '../Components/MovieDetails/MovieDetail';
 import { toRoman } from '../Utility';
 import Loader from '../Shared/Components/Loader/Loader';
 import { Film } from '../types/movieTypes';
+import useSize from '../hooks/useSize';
+import PopUp from '../Shared/Components/PopUp/PopUp';
 
 const HomePage = () => {
   const [filteredList, setFilteredList] = useState<Film[]>([]);
+  const { width } = useSize();
   const dispatch = useAppDispatch();
-  const { movieList, movieId, searchKey, sortId, movie, isMovieListLoading } = useAppSelector((state) => state.homePage);
+  const { movieList, movieId, searchKey, sortId, movie, isMovieListLoading } =
+    useAppSelector((state) => state.homePage);
   useEffect(() => {
     dispatch(fetchMovies());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const searchKeyword = useDebounce(searchKey, 1000);
@@ -69,15 +74,27 @@ const HomePage = () => {
 
   const handleClick = (id: number) => {
     dispatch(setSelectedMovieId(id));
-    const selectedMovieArray = filteredList.filter((item) => item.episode_id === id)
-    dispatch(
-      setSelectedMovie(
-        selectedMovieArray[0]
-      )
+    const selectedMovieArray = filteredList.filter(
+      (item) => item.episode_id === id
     );
+    dispatch(setSelectedMovie(selectedMovieArray[0]));
   };
 
   const colDef = ['episode', 'title', 'release_date'];
+
+  const displayMovieDetails = () => {
+    if (width > 500) {
+      return movie ? (
+        <div className="content-details">
+          <MovieDetail movie={movie} />
+        </div>
+      ) : (
+        <div className="default-container">
+          <h3>Click on a movie to view it's details</h3>
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="main-container">
@@ -86,31 +103,34 @@ const HomePage = () => {
       </div>
       {isMovieListLoading ? (
         <div className="loading-container">
-          <Loader color={'#DF1592'} size={20} />
+          <Loader color="#DF1592" size={20} />
         </div>
       ) : (
-        <div className="content">
-          <div className="content-list">
-            <MovieList
-              movieList={filteredList}
-              colDef={colDef}
-              selectedMovieId={movieId}
-              handleClick={handleClick}
-            />
-          </div>
-          <div className="divider" />
-            {
-                movie ? (
-                    <div className="content-details">
-                        <MovieDetail movie={movie} />
-                    </div>
-                ) : (
-                    <div className="default-container">
-                        <h3>Click on a movie to view it's details</h3>
-                    </div>
-                )
-            }
-        </div>
+        <>
+          {width <= 500 && movie ? (
+            <PopUp
+              isOpen={true}
+              onClose={() => dispatch(setSelectedMovie(null))}
+              width="100%"
+              height="100%"
+            >
+              <MovieDetail movie={movie} />
+            </PopUp>
+          ) : (
+            <div className="content">
+              <div className="content-list">
+                <MovieList
+                  movieList={filteredList}
+                  colDef={colDef}
+                  selectedMovieId={movieId}
+                  handleClick={handleClick}
+                />
+              </div>
+              {width > 500 && <div className="divider" />}
+              {width > 500 && displayMovieDetails()}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

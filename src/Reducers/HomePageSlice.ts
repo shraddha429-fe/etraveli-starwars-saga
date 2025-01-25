@@ -36,7 +36,7 @@ const homePageSlice = createSlice({
     setSearchKey : (state, action: PayloadAction<string>) => {
         state.searchKey = action.payload
     },
-    setSelectedMovie : (state, action: PayloadAction<Film>) => {
+    setSelectedMovie : (state, action: PayloadAction<Film |null>) => {
         state.movie = action.payload
     }
   },

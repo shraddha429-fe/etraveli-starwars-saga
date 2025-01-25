@@ -1,5 +1,4 @@
 import './MovieDetail.css';
-import '../../Shared/Components/Icon/Icon.css';
 import { Film } from '../../types/movieTypes';
 
 interface Props {

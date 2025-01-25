@@ -1,5 +1,5 @@
 import React from "react";
-import '../../Icons/icomoon.css';
+import '../../../Icons/icomoon.css';
 
 interface Props {
     isOpen: boolean;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const PopUp = (props: Props) => {
-    const {isOpen, onClose, children, width, height, showCloseIcon = true} = props;
+    const {isOpen, onClose, children, width="90%", height="auto", showCloseIcon = true} = props;
     if(!isOpen) {
         return null;
     }
