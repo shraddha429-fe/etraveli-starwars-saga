@@ -6,6 +6,12 @@ export interface Movie {
     releaseYear: string,
 }
 
+export interface ColumnDefItem {
+    key: string;
+    headerName: string;
+    width?: string;
+}
+
 export interface MovieTileProps {
     movie: Film,
     colDef: (keyof Film) [],
@@ -42,4 +48,5 @@ export interface OriginalFilm {
 
 export interface Film extends OriginalFilm {
     episode: string;
+    id: number;
   }

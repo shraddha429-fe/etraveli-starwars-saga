@@ -1,0 +1,38 @@
+.table-container {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.table {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .table-row {
+    cursor: pointer;
+    border-bottom: 1px solid #DF5194;
+    background-color: #fff;
+  }
+
+  .table-row:hover {
+    background-color: #f0d4e5;
+  }
+  
+  .table-cell {
+    padding: 8px;
+    text-align: left;
+  }
+
+  .highlighted-row {
+    background-color: #DF5194 !important;
+    color: black !important;
+  }
+
+  @media (max-width: 500px) {
+    .table {
+      font-size: 14px;
+    }
+  }
+

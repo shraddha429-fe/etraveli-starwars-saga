@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import HomePageHeader from '../Components/HomePageHeader/HomePageHeader';
-import MovieList from '../Components/MovieList/MovieList';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import {
   fetchMovies,
@@ -12,15 +11,16 @@ import './HomePage.css';
 import MovieDetail from '../Components/MovieDetails/MovieDetail';
 import { toRoman } from '../Utility';
 import Loader from '../Shared/Components/Loader/Loader';
-import { Film } from '../types/movieTypes';
+import { ColumnDefItem, Film } from '../types/movieTypes';
 import useSize from '../hooks/useSize';
 import PopUp from '../Shared/Components/PopUp/PopUp';
+import Table from '../Shared/Components/Table/Table';
 
 const HomePage = () => {
   const [filteredList, setFilteredList] = useState<Film[]>([]);
   const { width } = useSize();
   const dispatch = useAppDispatch();
-  const { movieList, movieId, searchKey, sortId, movie, isMovieListLoading } =
+  const { movieList, searchKey, sortId, movie,movieId ,isMovieListLoading } =
     useAppSelector((state) => state.homePage);
   useEffect(() => {
     dispatch(fetchMovies());
@@ -29,12 +29,18 @@ const HomePage = () => {
 
   const searchKeyword = useDebounce(searchKey, 1000);
 
+  const getRowClass = (row: Film) => {
+    if (row.episode_id === movieId) return 'highlighted-row';
+    return '';
+  }
+
   useEffect(() => {
     if (movieList.length > 0) {
       let updatedList = movieList.map((item) => ({
         ...item,
         episode: `Episode ${item.episode_id}`,
         title: `Episode ${toRoman(item.episode_id)} - ${item.title}`,
+        id: item.episode_id,
       }));
 
       if (searchKeyword) {
@@ -80,7 +86,11 @@ const HomePage = () => {
     dispatch(setSelectedMovie(selectedMovieArray[0]));
   };
 
-  const colDef: (keyof Film)[] = ['episode', 'title', 'release_date'];
+  const columns: ColumnDefItem[] = [
+    { key: 'episode', headerName: 'EPISODE' },
+    { key: 'title', headerName: 'TITLE' },
+    { key: 'release_date', headerName: 'RELEASE DATE' },
+  ];
 
   const displayMovieDetails = () => {
     if (width > 500) {
@@ -109,11 +119,11 @@ const HomePage = () => {
         <>
           <div className="content">
             <div className="content-list">
-              <MovieList
-                movieList={filteredList}
-                colDef={colDef}
-                selectedMovieId={movieId}
-                handleClick={handleClick}
+              <Table
+                list={filteredList}
+                colDef={columns}
+                onClick={handleClick}
+                getRowClass={getRowClass}
               />
             </div>
             {width > 500 && <div className="divider" />}
