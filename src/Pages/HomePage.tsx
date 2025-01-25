@@ -80,7 +80,7 @@ const HomePage = () => {
     dispatch(setSelectedMovie(selectedMovieArray[0]));
   };
 
-  const colDef = ['episode', 'title', 'release_date'];
+  const colDef: (keyof Film)[] = ['episode', 'title', 'release_date'];
 
   const displayMovieDetails = () => {
     if (width > 500) {
@@ -107,29 +107,28 @@ const HomePage = () => {
         </div>
       ) : (
         <>
-          {width <= 500 && movie ? (
-            <PopUp
-              isOpen={true}
-              onClose={() => dispatch(setSelectedMovie(null))}
-              width="100%"
-              height="100%"
-            >
-              <MovieDetail movie={movie} />
-            </PopUp>
-          ) : (
-            <div className="content">
-              <div className="content-list">
-                <MovieList
-                  movieList={filteredList}
-                  colDef={colDef}
-                  selectedMovieId={movieId}
-                  handleClick={handleClick}
-                />
-              </div>
-              {width > 500 && <div className="divider" />}
-              {width > 500 && displayMovieDetails()}
+          <div className="content">
+            <div className="content-list">
+              <MovieList
+                movieList={filteredList}
+                colDef={colDef}
+                selectedMovieId={movieId}
+                handleClick={handleClick}
+              />
             </div>
-          )}
+            {width > 500 && <div className="divider" />}
+            {width > 500 && displayMovieDetails()}
+            {width < 500 && movie && (
+              <PopUp
+                isOpen={true}
+                onClose={() => dispatch(setSelectedMovie(null))}
+                width="100%"
+                height="100%"
+              >
+                <MovieDetail movie={movie} />
+              </PopUp>
+            )}
+          </div>
         </>
       )}
     </div>

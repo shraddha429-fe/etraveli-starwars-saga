@@ -1,9 +1,6 @@
 .movie-container {
     display: flex;
-    /* justify-content: space-between; */
     width: calc(100% - 64px);
-    border-left: 1px solid #DF1592;
-    border-right: 1px solid #DF1592;
     border-bottom: 1px solid #DF1592;
     padding: 16px 32px;
     gap: 20px;

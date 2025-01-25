@@ -10,7 +10,7 @@ export interface MovieTileProps {
     movie: Film,
     colDef: (keyof Film) [],
     handleClick: (id: number) => void,
-    selectedMovieId: number,
+    selectedMovieId: number | null,
 }
 
 export interface HomeInitialStateType {

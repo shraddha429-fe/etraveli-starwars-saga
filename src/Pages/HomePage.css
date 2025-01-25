@@ -1,82 +1,67 @@
 .header {
-    display: flex;
-    gap: 10px;
-    width: calc(100% - 30px);
-    height: 40px;
-    border-bottom: 1px solid gray;
-    background-color: rgb(179, 176, 176);
-    padding: 8px 16px;
+  display: flex;
+  gap: 10px;
+  width: calc(100% - 32px);
+  border-bottom: 1px solid gray;
+  background-color: rgb(0, 0, 0, 0.2);
+  border-radius: 6px 6px 0 0;
+  padding: 16px;
 }
 
 @media (max-width: 500px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-    }
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 .content {
-    display: flex;
-    align-items: flex-start;
-    /* position: relative; */
+  display: flex;
+  align-items: flex-start;
 }
 
-/* @media (max-width: 500px) {
-    .content {
-        flex-direction: column;
-    }
-} */
-
 .content-list {
-    width: 60%;
+  width: 60%;
 }
 
 .content-details {
-    width: 40%;
-    padding: 20px;
-    flex: 1;
-    z-index: 1;
+  width: 40%;
+  padding: 20px;
+  flex: 1;
+  z-index: 1;
 }
 
- @media (max-width: 500px) {
-    .content-list {
-        width: 100%
-    }
+@media (max-width: 500px) {
+  .content-list {
+    width: 100%;
+  }
 
-    .content-details {
-        width: 100%
-    }
-
-    /* .content-details {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: calc(100% - 32px);
-        padding: 0;
-        background-color: white;
-        z-index: 10;
-        padding: 16px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-
-    } */
-} 
+  .content-details {
+    width: 100%;
+  }
+}
 
 .divider {
-    border: 1px solid gray;
-    height: calc(100vh - 100px);
+  border: 1px solid gray;
+  height: calc(100vh - 100px);
 }
 
-@media (max-width: 500px){
-    .divider {
-        display: none;
-    }
+@media (max-width: 500px) {
+  .divider {
+    display: none;
+  }
 }
 
 .loading-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 24px;
-    color: #555;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  color: #555;
+}
+
+#root {
+  border: 1px solid #df1594;
+  border-radius: 6px;
+}
