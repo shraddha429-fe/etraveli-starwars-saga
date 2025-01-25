@@ -1,11 +1,11 @@
-import { ReactElement, SyntheticEvent } from "react";
+import { ReactElement, ChangeEvent } from "react";
 import './SearchBar.css';
 import '../../../Icons/icomoon.css';
 
 interface Props {
     Icon?: ReactElement,
     searchKey : string,
-    handleChange: (e: SyntheticEvent) => void,
+    handleChange: (e: ChangeEvent<HTMLInputElement>) => void,
     position?: string,
     placeholder?: string,
 }

@@ -1,6 +1,14 @@
 import MovieTile from "../MovieTile/MovieTile";
+import { Film } from "../../types/movieTypes";
 
-const MovieList = (props) => {
+interface Props {
+    movieList: Film[];
+    colDef: (keyof Film)[];
+    handleClick: (id: number) => void;
+    selectedMovieId: number | null;
+}
+
+const MovieList = (props: Props) => {
   const { movieList, colDef, handleClick, selectedMovieId} = props;
 
     return (

@@ -1,4 +1,4 @@
-import { SyntheticEvent} from 'react';
+import { ChangeEvent} from 'react';
 import Dropdown from "../../Shared/Components/Dropdown/Dropdown";
 import SearchBar from "../../Shared/Components/SearchBar/SearchBar";
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -32,7 +32,7 @@ const HomePageHeader = () => {
 
     const searchPlaceholder = "Type to search...";
 
-  const handleChange = (e: SyntheticEvent) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchKey(e.target.value));
   };
 
@@ -57,7 +57,7 @@ const HomePageHeader = () => {
                 /> 
             </div>
             
-        </>
+      </>
     )
 };
 
