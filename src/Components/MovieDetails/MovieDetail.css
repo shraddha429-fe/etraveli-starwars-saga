@@ -1,3 +1,6 @@
+.detail-container   {
+    padding: 10px;
+}
 .detail-container  p {
     font-size: 15px;
     margin-top: 20px;
@@ -8,10 +11,5 @@
     display: flex;
     margin-top: 100px;
     justify-content: center;
-}
-
-@media (max-width: 500px) {
-    .default-container {
-        margin-top: 10px;
-    }
+    width: 40%;
 }

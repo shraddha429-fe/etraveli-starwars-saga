@@ -1,13 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-// import type { PayloadAction } from '@reduxjs/toolkit'
-import { HomeInitialStateType, Movie, Film,OriginalFilm } from "../types/movieTypes";
+import { HomeInitialStateType, Film } from "../types/movieTypes";
 import axios from "axios";
 
 const initialState : HomeInitialStateType = {
         sortId: "",
         movieId: null,
         searchKey: "",
-        movie: {},
+        movie: null,
         isMovieListLoading: false,
         isMovieListError: null,
         movieList: [],
@@ -18,7 +17,7 @@ export const fetchMovies = createAsyncThunk(
         try {
             const response = await axios.get("https://swapi.dev/api/films/?format=json");
             return response?.data?.results;
-        }catch(error) {
+        } catch(error) {
             return error;
         }
     }
@@ -31,7 +30,7 @@ const homePageSlice = createSlice({
     setSortId : (state, action: PayloadAction<string>) => {
         state.sortId = action.payload
     },
-    setSelectedMovieId : (state, action : PayloadAction<number>) => {
+    setSelectedMovieId : (state, action : PayloadAction<number | null>) => {
         state.movieId = action.payload
     },
     setSearchKey : (state, action: PayloadAction<string>) => {

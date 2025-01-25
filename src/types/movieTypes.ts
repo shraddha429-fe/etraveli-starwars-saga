@@ -7,17 +7,17 @@ export interface Movie {
 }
 
 export interface MovieTileProps {
-    movie: Movie,
-    colDef: (keyof Movie) [],
+    movie: Film,
+    colDef: (keyof Film) [],
     handleClick: (id: number) => void,
-    selectedMovie: number,
+    selectedMovieId: number,
 }
 
 export interface HomeInitialStateType {
     sortId: string,
     movieId: number | null,
     searchKey: string,
-    movie: Movie | null,
+    movie: Film | null,
     isMovieListLoading: boolean| null,
     isMovieListError: string | null,
     movieList: OriginalFilm[] | [],
