@@ -20,8 +20,8 @@ const Table = (props: Props) => {
 
   const displayTable = () => {
     return (
-      <div className='table-container'>
-        <table className='table'>
+      <div className="table-container">
+        <table className="table">
           {showHeader && (
             <thead>
               <tr>
@@ -35,14 +35,16 @@ const Table = (props: Props) => {
             {list.map((row) => {
               return (
                 <tr
-                key={row.id}
+                  key={row.id}
                   onClick={() => {
                     handleClick(row.id);
                   }}
-                  className={`table-row ${getRowClass ? getRowClass(row) : ''} }`}
+                  className={`table-row ${getRowClass ? getRowClass(row) : ''}`}
                 >
                   {colDef.map((col, index) => (
-                    <td key={index} className="table-cell">{row[col.key]}</td>
+                    <td key={index} className="table-cell">
+                      {row[col.key]}
+                    </td>
                   ))}
                 </tr>
               );

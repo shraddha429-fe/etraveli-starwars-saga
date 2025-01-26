@@ -1,5 +1,5 @@
 export const toRoman = (num: number): string => {
-    const romanMap = [
+    const romanMap: [number, string][] = [
         [1000, "M"],
         [900, "CM"],
         [500, "D"],

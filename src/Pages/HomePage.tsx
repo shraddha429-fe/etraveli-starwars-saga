@@ -7,7 +7,6 @@ import {
   setSelectedMovie,
 } from '../Reducers/HomePageSlice';
 import useDebounce from '../hooks/useDebounce';
-import './HomePage.css';
 import MovieDetail from '../Components/MovieDetails/MovieDetail';
 import { toRoman } from '../Utility';
 import Loader from '../Shared/Components/Loader/Loader';
@@ -20,7 +19,7 @@ const HomePage = () => {
   const [filteredList, setFilteredList] = useState<Film[]>([]);
   const { width } = useSize();
   const dispatch = useAppDispatch();
-  const { movieList, searchKey, sortId, movie,movieId ,isMovieListLoading } =
+  const { movieList, searchKey, sortId, movie, movieId, isMovieListLoading } =
     useAppSelector((state) => state.homePage);
   useEffect(() => {
     dispatch(fetchMovies());
@@ -32,7 +31,11 @@ const HomePage = () => {
   const getRowClass = (row: Film) => {
     if (row.episode_id === movieId) return 'highlighted-row';
     return '';
-  }
+  };
+
+  useEffect(() => {
+    console.log('-----------------------------------', movie);
+  }, [movie]);
 
   useEffect(() => {
     if (movieList.length > 0) {
@@ -93,17 +96,15 @@ const HomePage = () => {
   ];
 
   const displayMovieDetails = () => {
-    if (width > 500) {
-      return movie ? (
-        <div className="content-details">
-          <MovieDetail movie={movie} />
-        </div>
-      ) : (
-        <div className="default-container">
-          <h3>Click on a movie to view it's details</h3>
-        </div>
-      );
-    }
+    return movie ? (
+      <div className="content-details">
+        <MovieDetail movie={movie} />
+      </div>
+    ) : (
+      <div className="default-container">
+        <h3>Click on a movie to view it's details</h3>
+      </div>
+    );
   };
 
   return (
@@ -113,7 +114,7 @@ const HomePage = () => {
       </div>
       {isMovieListLoading ? (
         <div className="loading-container">
-          <Loader color="#DF1592" size={20} />
+          <Loader color="#DF1592" size={'20px'} />
         </div>
       ) : (
         <>
@@ -127,7 +128,7 @@ const HomePage = () => {
               />
             </div>
             {width > 500 && <div className="divider" />}
-            {width > 500 && displayMovieDetails()}
+            {displayMovieDetails()}
             {width < 500 && movie && (
               <PopUp
                 isOpen={true}
