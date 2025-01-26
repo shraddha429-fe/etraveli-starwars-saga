@@ -34,10 +34,6 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    console.log('-----------------------------------', movie);
-  }, [movie]);
-
-  useEffect(() => {
     if (movieList.length > 0) {
       let updatedList = movieList.map((item) => ({
         ...item,
