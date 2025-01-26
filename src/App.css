@@ -1,3 +1,9 @@
+@import url(./Shared/Components/PopUp/PopUp.css);
+@import url(./Shared/Components/SearchBar/SearchBar.css);
+@import url(./Shared/Components/Table/Table.css);
+@import url(./Shared/Components/Dropdown/Dropdown.css);
+@import url(./Icons/icomoon.css);
+@import url(/src/Components/MovieDetails/MovieDetail.css);
 * {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -7,3 +13,4 @@
 body {
   padding: 16px;
 }
+

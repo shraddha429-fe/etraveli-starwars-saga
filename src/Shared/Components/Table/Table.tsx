@@ -1,5 +1,5 @@
 import { ColumnDefItem } from '../../../types/movieTypes';
-import './Table.css';
+// import './Table.css';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,6 +35,7 @@ const Table = (props: Props) => {
             {list.map((row) => {
               return (
                 <tr
+                key={row.id}
                   onClick={() => {
                     handleClick(row.id);
                   }}

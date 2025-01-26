@@ -12,6 +12,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["jest", "node"], // Ensure Jest types are included
+    "types": ["jest", "node", "@testing-library/jest-dom"], // Ensure Jest types are included
   }
 }

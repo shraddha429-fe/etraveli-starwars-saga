@@ -9,7 +9,7 @@ const Loader = (props: Props) => {
     const {color, size} = props;
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-      Loading  <BeatLoader color={color} size={size} />
+      Loading  <BeatLoader data-testid="beat-loader" color={color} size={size} />
     </div>
   );
 };

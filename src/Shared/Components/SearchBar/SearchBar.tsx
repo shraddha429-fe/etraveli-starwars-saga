@@ -1,6 +1,6 @@
 import { ReactElement, ChangeEvent } from "react";
-import './SearchBar.css';
-import '../../../Icons/icomoon.css';
+// import './SearchBar.css';
+// import '../../../Icons/icomoon.css';
 
 interface Props {
     Icon?: ReactElement,
@@ -20,8 +20,9 @@ const SearchBar = (props: Props) => {
                 value={searchKey} 
                 onChange={handleChange} 
                 placeholder={placeholder}
+                data-testid="search-filter"
             />
-            <span className="icon-search"></span>
+            <span data-testid="icon-search" className="icon-search"></span>
         </div>
     )
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../Icons/icomoon.css';
-import './PopUp.css';
+// import '../../../Icons/icomoon.css';
+// import './PopUp.css';
 
 interface Props {
   isOpen: boolean;
@@ -8,7 +8,7 @@ interface Props {
   children: React.ReactNode;
   width: string;
   height: string;
-  showCloseIcon?: true;
+  showCloseIcon?: boolean;
 }
 
 const PopUp = (props: Props) => {
@@ -29,7 +29,7 @@ const PopUp = (props: Props) => {
       <div className="popup-overlay">
         <div className="popup-container" style={{ width, height }}>
           {showCloseIcon && (
-            <span onClick={onClose} className="icon-close-outline icon-red" />
+            <span onClick={onClose} data-testid="icon-close-outline" className="icon-close-outline icon-red" />
           )}
           <div className="popup-content">{children}</div>
         </div>
